@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { CSSProperties } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { CssBaseline, ThemeProvider } from '@mui/material'
 import { useThemeContext } from './assets/theme/ThemeContextProvider'
@@ -12,15 +12,18 @@ const App = () => {
     return routes.map(route => {
       if (route.route) {
         return (
-          <Route
-            path={route.route}
-            element={route.component}
-            key={route.key}
-          />
+          <Route path={route.route} element={route.component} key={route.key} />
         )
       }
       return null
     })
+  }
+
+  const bodyStyle: CSSProperties = {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: '50px 250px',
   }
 
   return (
@@ -28,15 +31,8 @@ const App = () => {
       <CssBaseline />
       <Navbar />
 
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        margin: '50px 250px',
-      }}>
-        <Routes>
-          {getRoutes(routes)}
-        </Routes>
+      <div style={bodyStyle}>
+        <Routes>{getRoutes(routes)}</Routes>
       </div>
     </ThemeProvider>
   )
