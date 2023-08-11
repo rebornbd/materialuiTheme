@@ -10,7 +10,15 @@ export const ROUTES = Object.freeze({
   LOGIN: "/login",
 })
 
-const routes = [
+export interface IRouteProps {
+  type: string,
+  name: string,
+  key: string,
+  route: string,
+  component: JSX.Element | JSX.Element[]
+}
+
+const routes: IRouteProps[] = [
   {
     type: "collapse",
     name: "Home",

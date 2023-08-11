@@ -2,21 +2,13 @@ import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { CssBaseline, ThemeProvider } from '@mui/material'
 import { useThemeContext } from './assets/theme/ThemeContextProvider'
-import routes from './routes'
+import routes, { IRouteProps } from './routes'
 import Navbar from './components/Navbar'
-
-interface IGetRouteProps {
-  type: string,
-  name: string,
-  key: string,
-  route: string,
-  component: JSX.Element | JSX.Element[]
-}
 
 const App = () => {
   const { theme } = useThemeContext()
 
-  const getRoutes = (routes: IGetRouteProps[]) => {
+  const getRoutes = (routes: IRouteProps[]) => {
     return routes.map(route => {
       if (route.route) {
         return (
